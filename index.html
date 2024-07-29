@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="filters">
+            <h3>Filters</h3>
+            <form id="filterForm" >
+
+                <div>
+                    <label for="category">Category:</label>
+                    <select id="category" name="category">
+                        <option value="">All</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Books">Books</option>
+                        <option value="Clothings">Clothings</option>
+                    </select>
+                </div>
+                <div> 
+                    <label for="sale_status">Sale Status:</label>
+                    <select id="sale_status" name="sale_status">
+                        <option value="">All</option>
+                        <option value="on sale">On Sale</option>
+                        <option value="not on sale">Not on Sale</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="min_price">Min Price:</label>
+                    <input type="number" id="min_price" name="min_price" min="0">
+                </div>
+                <div>
+                    <label for="max_price">Max Price:</label>
+                    <input type="number" id="max_price" name="max_price" min="0">
+                </div>
+                <button type="submit">Apply Filters</button>
+            </form>
+        </div>
+        
+        
+        <div class = "productList" > 
+            <div class="products" id="productList">
+                <!-- Products will be displayed here -->
+            </div>
+            <div class="pagination" id="pagination">
+                <!-- Pagination controls will be displayed here -->
+            </div>
+        </div>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
