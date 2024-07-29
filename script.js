@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("helloo")
     const filterForm = document.getElementById('filterForm');
     const productList = document.getElementById('productList');
     const pagination = document.getElementById('pagination');
 
-    filterForm.addEventListener('submit', (event) => {
+    filterForm.addEventListener('submit', async (event) => {
         event.preventDefault();
-        fetchProducts();
+        await fetchProducts();
     });
 
 // sourcery skip: avoid-function-declarations-in-blocks
@@ -13,9 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(filterForm);
         const query = new URLSearchParams(formData);
         query.append('page', page);
-        console.log(query.toString())
         const response = await fetch(`fetch_products.php?${query.toString()}`);
-        const data = await response.json();
+        const data = response.json();
+        
+        console.log(data);
         displayProducts(data.products);
         setupPagination(data.totalPages, page);
     }
